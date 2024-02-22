@@ -1,11 +1,10 @@
 {% load i18n %}
 
 <nav id="top_page" class="navbar navbar-expand-lg navbar-light bg-light accounts">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target=".account-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="container">
-
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".account-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="navbar-collapse account-collapse collapse">
             {% block nav_account_languages %}
             {% if LANGUAGES|length > 1 %}
