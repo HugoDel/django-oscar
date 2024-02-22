@@ -46,7 +46,7 @@
 
                                         <div class="btn-group address-controls">
                                             <a href="{% url 'checkout:user-address-update' pk=address.id %}" class="btn btn-secondary">{% trans "Edit address" %}</a>
-                                            <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"></button>
+                                            <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"></button>
                                             <ul class="dropdown-menu">
                                                 <a href="{% url 'checkout:user-address-delete' pk=address.id %}" class="btn-remove-address nav-link">{% trans "Delete" %}</a>
                                             </ul>

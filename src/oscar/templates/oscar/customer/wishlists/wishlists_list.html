@@ -17,7 +17,7 @@
                         <td>
                             <div class="btn-group">
                                 <a class="btn btn-secondary" href="{% url 'customer:wishlists-detail' key=wishlist.key %}">{% trans 'View' %}</a>
-                                <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"></button>
+                                <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"></button>
                                 <div class="dropdown-menu">
                                     <a href="{% url 'customer:wishlists-update' key=wishlist.key %}" class="dropdown-item">
                                         {% trans 'Wish list settings' %}

@@ -8,7 +8,7 @@
         {% if wishlists %}
 
             <div class="btn-group btn-wishlist align-bottom">
-                <a class="btn btn-lg dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Add to wish list" %}</a>
+                <a class="btn btn-lg dropdown-toggle" data-bs-toggle="dropdown" href="#">{% trans "Add to wish list" %}</a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     {% for wishlist in wishlists %}
                         {% if wishlist not in product_wishlists %}
