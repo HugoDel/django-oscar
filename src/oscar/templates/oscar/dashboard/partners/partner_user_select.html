@@ -23,7 +23,7 @@
 {% block dashboard_content %}
     {% block users_form %}
         <div class="card card-body">
-            <form method="get" class="form-inline">
+            <form method="get" class="d-flex">
                 {% include 'oscar/dashboard/partials/form_fields_inline.html' with form=form %}
                 <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
                 {% if form.is_bound %}

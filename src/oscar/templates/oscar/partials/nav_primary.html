@@ -10,7 +10,7 @@
     {% endblock %}
 
     {% block navbar_basket %}
-        <a class="btn btn-secondary float-right btn-cart ml-auto d-inline-block d-md-none" href="{% url 'basket:summary' %}">
+        <a class="btn btn-secondary float-right btn-cart ms-auto d-inline-block d-md-none" href="{% url 'basket:summary' %}">
             <i class="fas fa-shopping-cart"></i>
             {% trans "Basket" %}
             {% if not request.basket.is_empty %}
@@ -30,7 +30,7 @@
     {% block navbar_collapse %}
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {% block nav %}
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav me-auto">
                     {% block nav_items %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

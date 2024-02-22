@@ -30,13 +30,13 @@
         <h3><i class="fas fa-search"></i> {% trans "Search" %}</h3>
     </div>
     <div class="card card-body bg-light">
-        <form method="get" class="form-inline">
+        <form method="get" class="d-flex">
             {% for field in form %}
                 {% if field.name in form.basic_fields %}
                     {% if field.is_hidden %}
                         {{ field }}
                     {% else %}
-                        <div class="form-group mr-2{% if field.errors %} error{% endif %}">
+                        <div class="input-group me-2{% if field.errors %} error{% endif %}">
                             {{ field.label_tag }}
                             {% render_field field class+='form-control' %}
                             {% for error in field.errors %}
@@ -51,8 +51,8 @@
                     <input type="hidden" name="{{ field.name }}" value="{{ field.value|default_if_none:'' }}">
                 {% endif %}
             {% endfor %}
-            <button type="submit" class="btn btn-primary mr-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
-            <a data-toggle="modal" data-target="#SearchModal" href="#" class="mr-2">{% trans "Advanced Search" %}</a>
+            <button type="submit" class="btn btn-primary me-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
+            <a data-toggle="modal" data-target="#SearchModal" href="#" class="me-2">{% trans "Advanced Search" %}</a>
             <a href="{% url 'dashboard:offer-list' %}" class="btn btn-secondary">{% trans "Reset" %}</a>
         </form>
 

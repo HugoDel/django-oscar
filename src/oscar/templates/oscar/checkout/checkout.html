@@ -112,7 +112,7 @@
             <div class="row">
                 <p class="col-sm-9 h4">{% trans "Item" %}</p>
                 <p class="col-sm-1 h4 text-center">{% trans "Quantity" %}</p>
-                <p class="col-sm-2 h4 text-right">{% trans "Total" %}</p>
+                <p class="col-sm-2 h4 text-end">{% trans "Total" %}</p>
             </div>
         </div>
         {% for line in basket.all_lines %}
@@ -136,7 +136,7 @@
                     <div class="col-sm-1 text-center">
                         {{ line.quantity }}
                     </div>
-                    <div class="col-sm-2 text-right">
+                    <div class="col-sm-2 text-end">
                         <p class="price_color">
                             {% if not show_tax_separately and line.is_tax_known %}
                                 {{ line.line_price_incl_tax|currency:basket.currency }}

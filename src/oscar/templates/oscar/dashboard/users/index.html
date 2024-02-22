@@ -29,16 +29,16 @@
         <h3><i class="fas fa-search"></i> {% trans "Search" %}</h3>
     </div>
     <div class="card card-body">
-        <form method="get" class="form-inline">
+        <form method="get" class="d-flex">
             {% include "oscar/dashboard/partials/form_fields_inline.html" with form=form %}
-            <button type="submit" name="search" class="btn btn-primary mr-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
+            <button type="submit" name="search" class="btn btn-primary me-2" data-loading-text="{% trans 'Searching...' %}">{% trans "Search" %}</button>
             <a href="{% url 'dashboard:users-index' %}" class="btn btn-secondary">{% trans "Reset" %}</a>
         </form>
     </div>
 
     {% block users_list %}
         {% if users.data %}
-            <form id="user_list_form" method="post" class="form-inline">
+            <form id="user_list_form" method="post" class="d-flex">
                 {% csrf_token %}
                 {% render_table users %}
             </form>

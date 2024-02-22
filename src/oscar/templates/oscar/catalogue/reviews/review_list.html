@@ -38,7 +38,7 @@
         {% include 'oscar/catalogue/reviews/review_product.html' %}
 
         {% if reviews %}
-            <form method="get" class="form-inline">
+            <form method="get" class="d-flex">
                 {% include "oscar/partials/form_fields_inline.html" with form=form %}
                 <button type="submit" class="btn btn-secondary">{% trans "Go" %}</button>
             </form>

@@ -31,9 +31,9 @@
         <h3><i class="fas fa-search"></i> {% trans "Search" %}</h3>
     </div>
     <div class="card card-body">
-        <form method="get" class="form-inline">
+        <form method="get" class="d-flex">
             {% include "oscar/dashboard/partials/form_fields_inline.html" with form=form %}
-            <button type="submit" class="btn btn-primary mr-2" data-loading-text="{% trans 'Searching...' %}">
+            <button type="submit" class="btn btn-primary me-2" data-loading-text="{% trans 'Searching...' %}">
                 {% trans "Search" %}
             </button>
             <a href="{% url 'dashboard:page-list' %}" class="btn btn-secondary">{% trans "Reset" %}</a>

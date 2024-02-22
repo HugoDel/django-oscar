@@ -117,7 +117,7 @@
             <div class="row">
                 <p class="col-sm-9 h4">{% trans "Items purchased" %}</p>
                 <p class="col-sm-1 h4 text-center">{% trans "Quantity" %}</p>
-                <p class="col-sm-2 h4 text-right">{% trans "Total" %}</p>
+                <p class="col-sm-2 h4 text-end">{% trans "Total" %}</p>
             </div>
         </div>
 
@@ -141,7 +141,7 @@
                     <div class="col-sm-1 text-center">
                         {{ line.quantity }}
                     </div>
-                    <div class="col-sm-2 text-right">
+                    <div class="col-sm-2 text-end">
                         <p class="price_color">
                             {% if show_tax_separately %}
                                 {{ line.line_price_before_discounts_excl_tax|currency:order.currency }}
@@ -180,7 +180,7 @@
 
 
     {% block order_actions %}
-        <div class="form-group">
+        <div class="input-group">
             <div class="row">
                 <div class="col-sm-4">
                     <p><a onclick="window.print()" href="#" class="btn btn-primary btn-block btn-lg">{% trans "Print this page" %}</a></p>

@@ -114,7 +114,7 @@
                 <div class="table-header">
                     <h3>{% trans "Items ordered" %}</h3>
                 </div>
-                <form id="order_lines_form" method="post" class="form-inline">
+                <form id="order_lines_form" method="post" class="d-flex">
                     {% csrf_token %}
                     {% block order_lines %}
                         <table class="table table-striped table-bordered table-hover">
@@ -162,8 +162,8 @@
                                             {% endif %}
                                         </td>
                                         <td>{{ line.partner_sku }}</td>
-                                        <td class="text-right">{{ line.line_price_before_discounts_excl_tax|currency:order.currency }}</td>
-                                        <td class="text-right">{{ line.line_price_before_discounts_incl_tax|currency:order.currency }}</td>
+                                        <td class="text-end">{{ line.line_price_before_discounts_excl_tax|currency:order.currency }}</td>
+                                        <td class="text-end">{{ line.line_price_before_discounts_incl_tax|currency:order.currency }}</td>
                                         <td>
                                             <a href="{% url 'dashboard:order-line-detail' number=order.number line_id=line.id %}" class="btn btn-secondary">{% trans "View" %}</a>
                                         </td>
@@ -173,8 +173,8 @@
                                 <tr>
                                     <td colspan="8"></td>
                                     <th>{% trans "Discount" %}</th>
-                                    <td class="text-right">{{ order.total_discount_excl_tax|currency:order.currency }}</td>
-                                    <td class="text-right">{{ order.total_discount_incl_tax|currency:order.currency }}</td>
+                                    <td class="text-end">{{ order.total_discount_excl_tax|currency:order.currency }}</td>
+                                    <td class="text-end">{{ order.total_discount_incl_tax|currency:order.currency }}</td>
                                     <td></td>
                                 </tr>
                                 {% with discounts=order.basket_discounts %}
@@ -182,8 +182,8 @@
                                         <tr>
                                             <td colspan="8"></td>
                                             <th>{% trans "Basket total (excl. discounts)" %}</th>
-                                            <td class="text-right">{{ order.basket_total_before_discounts_excl_tax|currency:order.currency }}</td>
-                                            <td class="text-right">{{ order.basket_total_before_discounts_incl_tax|currency:order.currency }}</td>
+                                            <td class="text-end">{{ order.basket_total_before_discounts_excl_tax|currency:order.currency }}</td>
+                                            <td class="text-end">{{ order.basket_total_before_discounts_incl_tax|currency:order.currency }}</td>
                                             <td></td>
                                         </tr>
                                         {% for discount in discounts %}
@@ -193,24 +193,24 @@
                                                     <span class="badge badge-success">{% trans "Discount" %}</span>
                                                     {{ discount.offer_name }}
                                                 </td>
-                                                <td class="text-right"></td>
-                                                <td class="text-right">- {{ discount.amount|currency:order.currency }}</td>
+                                                <td class="text-end"></td>
+                                                <td class="text-end">- {{ discount.amount|currency:order.currency }}</td>
                                                 <td></td>
                                             </tr>
                                         {% endfor %}
                                         <tr>
                                             <td colspan="8"></td>
                                             <th>{% trans "Basket total (inc. discounts)" %}</th>
-                                            <th class="text-right">{{ order.basket_total_excl_tax|currency:order.currency }}</th>
-                                            <th class="text-right">{{ order.basket_total_incl_tax|currency:order.currency }}</th>
+                                            <th class="text-end">{{ order.basket_total_excl_tax|currency:order.currency }}</th>
+                                            <th class="text-end">{{ order.basket_total_incl_tax|currency:order.currency }}</th>
                                             <td></td>
                                         </tr>
                                     {% else %}
                                         <tr>
                                             <td colspan="8"></td>
                                             <th>{% trans "Basket total" %}</th>
-                                            <th class="text-right">{{ order.basket_total_excl_tax|currency:order.currency }}</th>
-                                            <th class="text-right">{{ order.basket_total_incl_tax|currency:order.currency }}</th>
+                                            <th class="text-end">{{ order.basket_total_excl_tax|currency:order.currency }}</th>
+                                            <th class="text-end">{{ order.basket_total_incl_tax|currency:order.currency }}</th>
                                             <td></td>
                                         </tr>
                                     {% endif %}
@@ -220,8 +220,8 @@
                                     <tr>
                                         <td colspan="8"></td>
                                         <td>{% trans "Shipping total (excl. discounts)" %}</td>
-                                        <td class="text-right">{{ order.shipping_before_discounts_excl_tax|currency:order.currency }}</td>
-                                        <td class="text-right">{{ order.shipping_before_discounts_incl_tax|currency:order.currency }}</td>
+                                        <td class="text-end">{{ order.shipping_before_discounts_excl_tax|currency:order.currency }}</td>
+                                        <td class="text-end">{{ order.shipping_before_discounts_incl_tax|currency:order.currency }}</td>
                                         <td></td>
                                     </tr>
                                     {% for discount in order.shipping_discounts %}
@@ -232,23 +232,23 @@
                                                 {{ discount.offer_name }}
                                             </td>
                                             <td></td>
-                                            <td class="text-right">- {{ discount.amount|currency:order.currency }}</td>
+                                            <td class="text-end">- {{ discount.amount|currency:order.currency }}</td>
                                             <td></td>
                                         </tr>
                                     {% endfor %}
                                     <tr>
                                         <td colspan="8"></td>
                                         <th>{% trans "Shipping total (inc. discounts)" %}</th>
-                                        <th class="text-right">{{ order.shipping_excl_tax|currency:order.currency }}</th>
-                                        <th class="text-right">{{ order.shipping_incl_tax|currency:order.currency }}</th>
+                                        <th class="text-end">{{ order.shipping_excl_tax|currency:order.currency }}</th>
+                                        <th class="text-end">{{ order.shipping_incl_tax|currency:order.currency }}</th>
                                         <td></td>
                                     </tr>
                                 {% else %}
                                     <tr>
                                         <td colspan="8"></td>
                                         <th>{% trans "Shipping total" %}</th>
-                                        <th class="text-right">{{ order.shipping_excl_tax|currency:order.currency }}</th>
-                                        <th class="text-right">{{ order.shipping_incl_tax|currency:order.currency }}</th>
+                                        <th class="text-end">{{ order.shipping_excl_tax|currency:order.currency }}</th>
+                                        <th class="text-end">{{ order.shipping_incl_tax|currency:order.currency }}</th>
                                         <td></td>
                                     </tr>
                                 {% endif %}
@@ -259,8 +259,8 @@
                                         <tr>
                                             <td colspan="8"></td>
                                             <th>{% blocktrans with name=charge.name %}Surcharge {{ name }}{% endblocktrans %}</th>
-                                            <th class="text-right">{{ charge.excl_tax|currency:order.currency }}</th>
-                                            <th class="text-right">{{ charge.incl_tax|currency:order.currency }}</th>
+                                            <th class="text-end">{{ charge.excl_tax|currency:order.currency }}</th>
+                                            <th class="text-end">{{ charge.incl_tax|currency:order.currency }}</th>
                                             <td></td>
                                         </tr>
                                     {% endfor %}
@@ -270,8 +270,8 @@
                                 <tr>
                                     <td colspan="8"></td>
                                     <th>{% trans "Order total" %}</th>
-                                    <th class="text-right">{{ order.total_excl_tax|currency:order.currency }}</th>
-                                    <th class="text-right">{{ order.total_incl_tax|currency:order.currency }}</th>
+                                    <th class="text-end">{{ order.total_excl_tax|currency:order.currency }}</th>
+                                    <th class="text-end">{{ order.total_incl_tax|currency:order.currency }}</th>
                                     <td></td>
                                 </tr>
                             </tbody>
@@ -286,14 +286,14 @@
                     {% block line_actions %}
                         <div class="card card-body bg-light">
                             <h3>{% trans "With selected lines" %}:</h3>
-                            <div class="form-inline mb-sm-2">
-                                <div class="form-group">
+                            <div class="d-flex mb-sm-2">
+                                <div class="input-group">
                                     <div class="form-check">
                                         <input id="line_status_check" class="form-check-input" type="radio" name="line_action" value="change_line_statuses" />
                                         <label for="line_status_check" class="form-check-label">{% trans "Change line status to" %}</label>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="input-group">
                                     <label class="sr-only" for="new_status_select">{% trans "choose new status" %}</label>
                                     <select id="new_status_select" name="new_status">
                                         <option value=""> -- {% trans "choose new status" %} -- </option>
@@ -303,14 +303,14 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-inline mb-sm-2">
-                                <div class="form-group">
+                            <div class="d-flex mb-sm-2">
+                                <div class="input-group">
                                     <div class="form-check">
                                         <input id="shipping_event_check" class="form-check-input" type="radio" name="line_action" value="create_shipping_event" />
                                         <label for="shipping_event_check" class="form-check-label">{% trans "Create shipping event" %}</label>
                                     </div>
                                 </div>
-                                <div class="form-group mr-1">
+                                <div class="input-group me-1">
                                     <label class="sr-only" for="shipping_event_type_select">{% trans "choose event type" %}</label>
                                     <select id="shipping_event_type_select" name="shipping_event_type">
                                         <option value=""> -- {% trans "choose event type" %} -- </option>
@@ -319,19 +319,19 @@
                                         {% endfor %}
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="input-group">
                                     <label for="reference_input">{% trans "with reference" %}</label>
                                     <input id="reference_input" type="text" name="reference" value="" />
                                 </div>
                             </div>
-                            <div class="form-inline mb-sm-2">
-                                <div class="form-group">
+                            <div class="d-flex mb-sm-2">
+                                <div class="input-group">
                                     <div class="form-check">
                                         <input id="payment_event_check" class="form-check-input" type="radio" name="line_action" value="create_payment_event" />
                                         <label for="payment_event_check" class="form-check-label">{% trans "Create payment event" %}</label>
                                     </div>
                                 </div>
-                                <div class="form-group mr-1">
+                                <div class="input-group me-1">
                                     <label class="sr-only" for="payment_event_type_select">{% trans "choose event type" %}</label>
                                     <select id="payment_event_type_select" name="payment_event_type">
                                         <option value=""> -- {% trans "choose event type" %} -- </option>
@@ -340,7 +340,7 @@
                                         {% endfor %}
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="input-group">
                                     <label for="amount_input">{% trans "with amount" %}</label>
                                     <input id="amount_input" type="text" name="amount" value="" />
                                 </div>
