@@ -88,11 +88,11 @@
                         <td>{{ review.total_votes }}</td>
                         <td>
                             {% if review.status == 1 %}
-                                <span class="badge badge-success">
+                                <span class="badge text-bg-success">
                             {% elif review.status == 2 %}
-                                <span class="badge badge-danger">
+                                <span class="badge text-bg-danger">
                             {% else %}
-                                <span class="badge badge-info">
+                                <span class="badge text-bg-info">
                             {% endif %}
                                 {{ review.get_status_display }}
                             </span>

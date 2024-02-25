@@ -14,10 +14,10 @@
                     <tr>
                         <td>
                             {% if address.is_default_for_shipping %}
-                                <span class="badge badge-success">{% trans 'Default shipping address' %}</span>
+                                <span class="badge text-bg-success">{% trans 'Default shipping address' %}</span>
                             {% endif %}
                             {% if address.is_default_for_billing %}
-                                <span class="badge badge-info">{% trans 'Default billing address' %}</span>
+                                <span class="badge text-bg-info">{% trans 'Default billing address' %}</span>
                             {% endif %}
                             <address>
                                 {% for field in address.active_address_fields %}

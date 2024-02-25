@@ -47,9 +47,9 @@
             <td>{{ voucher_set.count }}</td>
             <td>
                 {% if voucher_set.is_active %}
-                    <span class="badge badge-success">{% trans "Active" %}</span>
+                    <span class="badge text-bg-success">{% trans "Active" %}</span>
                 {% else %}
-                    <span class="badge badge-warning">{% trans "Inactive" %}</span>
+                    <span class="badge text-bg-warning">{% trans "Inactive" %}</span>
                 {% endif %}
             </td>
             <td>{{ voucher_set.vouchers.first.offers.count|default:0 }}</td>

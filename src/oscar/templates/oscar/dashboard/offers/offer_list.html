@@ -63,7 +63,7 @@
         <div class="search-filter-list">
             <label>Filters:</label>
             {% for filter in search_filters %}
-            <span class="badge badge-success">{{ filter }}</span>
+            <span class="badge text-bg-success">{{ filter }}</span>
             {% endfor %}
         </div>
         {% endif %}
@@ -111,15 +111,15 @@
                         <td>{{ offer.benefit.description|safe }}</td>
                         <td>{{ offer.condition.description|safe }}</td>
                         <td>{% if offer.is_available %}
-                                <span class="badge badge-success">{% trans "Yes" %}</span>
+                                <span class="badge text-bg-success">{% trans "Yes" %}</span>
                             {% else %}
-                                <span class="badge badge-danger">{% trans "No" %}</span>
+                                <span class="badge text-bg-danger">{% trans "No" %}</span>
                             {% endif %}
                         </td>
                         <td>
                             {% for restriction in offer.availability_restrictions %}
                                 {% if not restriction.is_satisfied %}
-                                    <label class="badge badge-danger">
+                                    <label class="badge text-bg-danger">
                                         {{ restriction.description }}
                                     </label>
                                 {% else %}
