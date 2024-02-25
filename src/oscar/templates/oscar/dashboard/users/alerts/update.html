@@ -23,8 +23,8 @@
 
 {% block dashboard_content %}
     <div class="table-header">
-        <h2 class="float-left">{% blocktrans with id=alert.id %}Product alert #{{ id }}{% endblocktrans %}</h2>
-        <div class="float-right">
+        <h2 class="float-start">{% blocktrans with id=alert.id %}Product alert #{{ id }}{% endblocktrans %}</h2>
+        <div class="float-end">
             <form method="post" class="d-flex">
                 {% csrf_token %}
                 {% include 'oscar/dashboard/partials/form_fields_inline.html' %}

@@ -31,7 +31,7 @@
                         <h3>
                           {% trans "Address" %}
                           {% block shipping_address_actions %}
-                            <a href="{% url 'checkout:shipping-address' %}" class="float-right">
+                            <a href="{% url 'checkout:shipping-address' %}" class="float-end">
                                 {% trans "Change" %}
                             </a>
                         {% endblock %}</h3>
@@ -63,7 +63,7 @@
                         <h3>
                           {% trans "Shipping method" %}
                           {% block shipping_method_actions %}
-                            <a href="{% url 'checkout:shipping-method' %}" class="float-right">
+                            <a href="{% url 'checkout:shipping-method' %}" class="float-end">
                                 {% trans "Change" %}
                             </a>
                           {% endblock %}
@@ -88,7 +88,7 @@
                 <div class="card card-body bg-light card card-body bg-light-success">
                     <h3>
                       {% trans "Payment" %}
-                      <a href="{% url 'checkout:payment-details' %}" class="float-right">
+                      <a href="{% url 'checkout:payment-details' %}" class="float-end">
                         {% trans "Change" %}
                       </a>
                     </h3>
@@ -101,7 +101,7 @@
     {% block order_contents %}
         <div class="sub-header">
             {% block order_contents_actions %}
-                <a href="{% url 'basket:summary' %}" class="float-right">
+                <a href="{% url 'basket:summary' %}" class="float-end">
                     {% trans "Edit order contents" %}
                 </a>
             {% endblock %}
