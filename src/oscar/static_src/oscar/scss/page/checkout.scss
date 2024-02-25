@@ -79,10 +79,8 @@
 
 // Checkout navigation - uses navbar
 .nav-checkout {
-  .active {
-    .navbar-text {
-      color: $white;
-    }
+  .active.navbar-text {
+    color: $white;
   }
 
   .nav-item {
