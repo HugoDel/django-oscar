@@ -28,12 +28,8 @@
             {% block hiddenforms %}{% endblock %}
         </div>
 
-        <div class="input-group clearfix">
-            <div class="row">
-                <div class="col-sm-3 offset-sm-9">
-                     <button id='place-order' type="submit" class="btn btn-primary btn-lg btn-block" data-loading-text="{% trans 'Submitting...' %}">{% trans "Place order" %}</button>
-                </div>
-            </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+                <button id='place-order' type="submit" class="btn btn-primary btn-lg btn-block" data-loading-text="{% trans 'Submitting...' %}">{% trans "Place order" %}</button>
         </div>
     </form>
 {% endblock place_order %}

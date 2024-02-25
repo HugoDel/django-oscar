@@ -180,15 +180,9 @@
 
 
     {% block order_actions %}
-        <div class="input-group">
-            <div class="row">
-                <div class="col-sm-4">
-                    <p><a onclick="window.print()" href="#" class="btn btn-primary btn-block btn-lg">{% trans "Print this page" %}</a></p>
-                </div>
-                <div class="col-sm-4 offset-sm-4">
-                    <p><a href="{{ homepage_url }}" class="btn btn-primary btn-block btn-lg">{% trans "Continue shopping" %}</a></p>
-                </div>
-            </div>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+                <p><a onclick="window.print()" href="#" class="btn btn-primary btn-block btn-lg">{% trans "Print this page" %}</a></p>
+                <p><a href="{{ homepage_url }}" class="btn btn-primary btn-block btn-lg">{% trans "Continue shopping" %}</a></p>
         </div>
     {% endblock order_actions %}
 {% endblock content %}
