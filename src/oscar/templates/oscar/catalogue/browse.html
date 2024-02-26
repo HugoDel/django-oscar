@@ -58,14 +58,14 @@
 
 {% block content %}
 
-    <form method="get">
+    <form method="get" class="row row-cols-lg-2 g-3 align-items-center">
         {# Render other search params as hidden inputs #}
         {% for value in selected_facets %}
             <input type="hidden" name="selected_facets" value="{{ value }}" />
         {% endfor %}
         <input type="hidden" name="q" value="{{ search_form.q.value|default_if_none:"" }}" />
-
         {% if paginator.count %}
+            <div class="col-12 me-auto">
             {% if paginator.num_pages > 1 %}
                 {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
                     <strong>{{ num_results }}</strong> result - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
@@ -79,10 +79,9 @@
                     <strong>{{ num_results }}</strong> results.
                 {% endblocktrans %}
             {% endif %}
+            </div>
             {% if form %}
-                <div class="float-end">
                     {% include "oscar/partials/form_field.html" with field=form.sort_by style='horizontal' %}
-                </div>
             {% endif %}
         {% else %}
             <p>
