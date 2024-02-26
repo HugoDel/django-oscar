@@ -136,7 +136,7 @@
                     {% if order_statuses %}
                         <div class="input-group">
                             <div class="controls">
-                                <select name="new_status">
+                                <select class="form-select " name="new_status">
                                     <option value=""> -- {% trans "choose new status" %} -- </option>
                                     {% for status in order_statuses %}
                                         <option>{{ status }}</option>

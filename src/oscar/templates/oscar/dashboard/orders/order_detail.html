@@ -295,7 +295,7 @@
                                 </div>
                                 <div class="input-group">
                                     <label class="sr-only" for="new_status_select">{% trans "choose new status" %}</label>
-                                    <select id="new_status_select" name="new_status">
+                                    <select class="form-select " id="new_status_select" name="new_status">
                                         <option value=""> -- {% trans "choose new status" %} -- </option>
                                         {% for status in line_statuses %}
                                         <option>{{ status }}</option>
@@ -312,7 +312,7 @@
                                 </div>
                                 <div class="input-group me-1">
                                     <label class="sr-only" for="shipping_event_type_select">{% trans "choose event type" %}</label>
-                                    <select id="shipping_event_type_select" name="shipping_event_type">
+                                    <select class="form-select " id="shipping_event_type_select" name="shipping_event_type">
                                         <option value=""> -- {% trans "choose event type" %} -- </option>
                                         {% for event_type in shipping_event_types %}
                                         <option value="{{ event_type.code }}">{{ event_type.name }}</option>
@@ -333,7 +333,7 @@
                                 </div>
                                 <div class="input-group me-1">
                                     <label class="sr-only" for="payment_event_type_select">{% trans "choose event type" %}</label>
-                                    <select id="payment_event_type_select" name="payment_event_type">
+                                    <select class="form-select " id="payment_event_type_select" name="payment_event_type">
                                         <option value=""> -- {% trans "choose event type" %} -- </option>
                                         {% for event_type in payment_event_types %}
                                         <option value="{{ event_type.code }}">{{ event_type.name }}</option>

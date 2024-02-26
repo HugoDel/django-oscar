@@ -12,7 +12,7 @@
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ language_neutral_url_path }}" />
                     <div class="input-group mb-0">
-                        <select name="language" class="form-control">
+                        <select class="form-select form-control " name="language">
                             {% get_language_info_list for LANGUAGES as languages %}
                             {% for language in languages %}
                                 <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE%} selected="selected"{% endif %}>
