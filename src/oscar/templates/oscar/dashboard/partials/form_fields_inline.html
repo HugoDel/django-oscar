@@ -4,9 +4,8 @@
     {% if field.is_hidden %}
         {{ field }}
     {% else %}
-        <div class="input-group me-2 {% if field.errors %}error{% endif %}">
-            {{ field.label_tag }}
-            {% render_field field class+='form-control' %}
+        <div class="me-2 {% if field.errors %}error{% endif %}">
+            {% render_field field class+='form-control' placeholder=field.label %}
             {% for error in field.errors %}
                 <ul class="error-block">
                     <li>{{ error }}</li>

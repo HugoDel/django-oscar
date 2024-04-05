@@ -9,26 +9,27 @@
     {% endcomment %}
 
     {% block control_group %}
-        <div class="input-group{% if style == 'horizontal' %} row{% endif %}{% if field.errors %} error{% endif %}">
+        <div class="{% if style == "horizontal" %} col-12  {% else %} mb-3 {% endif %}">
+            {% if style|default:"stacked" != 'stacked' %} 
+            <div class="row"> 
+            {% endif %}
 
             {% block label %}
                 {% if not nolabel and field.widget_type != 'checkbox' %}
-                    <label for="{{ field.auto_id }}" class="{% if style|default:"stacked" != 'stacked' %}col-sm-4{% endif %} col-form-label{% if field.field.required %} required{% endif %}">
+                    <label for="{{ field.auto_id }}" class="{% if style|default:"stacked" != 'stacked' %}col-auto{% endif %} col-form-label{% if field.field.required %} required{% endif %} form-label">
                         {{ field.label|safe }}
                     </label>
                 {% endif %}
             {% endblock %}
 
             {% block controls %}
-                <div class="{% if style|default:"stacked" != 'stacked' %}col-sm-8{% endif %}{% if field.widget_type == 'checkbox' or field.widget_type == 'radioselect' %} form-check{% endif %}">
+                <div class="{% if style|default:"stacked" != 'stacked' %}col-auto{% endif %}{% if field.widget_type == 'checkbox' %} form-check{% endif %}">
                     {% block widget %}
                         {% if field.widget_type == 'checkbox' %}
-                            {% render_field field class+="form-check-input" %}
-                            <label for="{{ field.auto_id }}" class="form-check-label mt-2{% if field.field.required %} required{% endif %}">
+                            <label for="{{ field.auto_id }}" class="{% if field.field.required %}required{% endif %}">
+                                {% render_field field %}
                                 {{ field.label|safe }}
                             </label>
-                        {% elif field.widget_type == 'radioselect' %}
-                            {% render_field field class+="form-check-input position-static controls mt-2" %}
                         {% else %}
                             {% render_field field class+="form-control" %}
                         {% endif %}
@@ -50,6 +51,9 @@
                     {% endblock %}
                 </div>
             {% endblock %}
+            {% if style|default:"stacked" != 'stacked' %} 
+            </div> 
+            {% endif %}
         </div>
     {% endblock %}
 {% endif %}

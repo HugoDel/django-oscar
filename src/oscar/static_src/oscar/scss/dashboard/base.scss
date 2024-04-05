@@ -41,6 +41,10 @@ h3.app-ico:before {
   }
 }
 
+// Remore underlined links as default from Bootstap 5
+a:link {
+  text-decoration: none;
+}
 
 // CARDS
 // -----
